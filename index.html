@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="shine.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="shine.ico" type="image/x-icon">
+    <style>
+        body {
+            background-color: rgb(243, 248, 255);
+        }
+
+        p.dotted {border-style: dotted;}
+        p.dashed {border-style: dashed;}
+        p.solid {border-style: solid;}
+        p.double {border-style: double;}
+        p.groove {border-style: groove;}
+        p.ridge {border-style: ridge;}
+        p.inset {border-style: inset;}
+        p.outset {border-style: outset;}
+        p.mix {border-style: dotted dashed solid double;}
+
+        h1.custom-border {border: 2px solid rgb(70, 58, 57);}
+        h1.bg-color1 {background-color: rgba(255, 133, 133, 0.5);}
+        h1.bg-color2 {background-color: hsla(328, 100%, 81%, 0.5);}
+        h1 {text-shadow: 0 0 3px #7c9fff;}
+        div.ex9 {
+        border: 1px solid rgb(233, 165, 100);
+        margin-left: 100px; 
+        }   
+        p.ex1 {
+        margin-left: inherit;
+        }
+        p.test {
+        width: 11em; 
+        border: 1px solid #000000;
+        word-wrap: break-word;
+        }
+        div.ex2 {
+        border: 1px solid black;
+        padding: 25px;
+        background-color: rgb(239, 228, 253);
+        }
+        
+        div.ex3 {
+        height: 50px;
+        width: 50%;
+        background-color: rgb(100, 34, 107);
+        }
+        div.ex4 {
+        width: 320px;
+        padding: 10px;
+        border: 5px solid rgb(39, 27, 27);
+        margin: 0;
+        }
+        .icon-text img {
+            width: 24px; 
+            height: 24px;
+            margin-right: 5px; 
+        }
+        div.ex5 {
+        background-color: rgb(169, 206, 255);
+        width: 300px;
+        border: 15px solid rgb(36, 0, 128);
+        padding: 50px;
+        margin: 20px;
+        }
+        table, td, th {
+        border: 1px solid black;
+        }
+        table {
+        border-collapse: collapse;
+        width: 100%;
+        }
+        th {
+        text-align: left;
+        }
+        /* default without clicking*/
+        a:link {
+        color: rgb(96, 35, 35);
+        }
+        /* clicked */
+        a:visited {
+        color: rgb(7, 92, 7);
+        }
+        /* hover */
+        a:hover {
+        color: hotpink;
+        }
+        .tooltip {
+        position: relative;
+        display: inline-block;
+        }
+        .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        position: absolute;
+        z-index: 1;
+        left: 110%;
+        }
+        .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-top: -5px;
+        border-style: solid;
+        border-color: transparent black transparent transparent;
+        }
+        .tooltip:hover .tooltiptext {
+        visibility: visible;
+        }
+        ul.demo {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        }
+        #rcorners3 {
+        border-radius: 15px 50px;
+        background: #223cb1;
+        padding: 20px; 
+        width: 200px;
+        height: 80px; 
+        } 
+        .newspaper {
+        column-count: 3;
+        column-gap: 40px;
+        column-rule: 1px solid rgb(127, 79, 142);
+        }
+        .container {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        }
+        .container img {
+        width: 100%;
+        height: auto;
+        }
+        .container .btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        background-color: #913b3b;
+        color: rgb(73, 10, 10);
+        font-size: 16px;
+        padding: 16px 30px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+        }
+        .container .btn:hover {
+        background-color: rgb(240, 93, 93);
+        color: white;
+        }
+        div.ex6 { 
+        box-shadow: 0px 0px 15px currentcolor;
+        border: 5px solid currentcolor;
+        padding: 15px;
+        }
+        .pagination {
+        display: inline-block;
+        }
+        .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color .3s;
+        border: 1px solid #ddd;
+        margin: 0 4px;}
+        .pagination a.active {
+        background-color: #104a12;
+        color: white;
+        border: 1px solid #4CAF50;}
+        .pagination a:hover:not(.active) {background-color: #ddd;}
+        div.ex7 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: relative;
+        animation: myfirst 5s linear 2s infinite alternate;}
+        @keyframes myfirst {
+        0%   {background-color:red; left:0px; top:0px;}
+        25%  {background-color:yellow; left:200px; top:0px;}
+        50%  {background-color:blue; left:200px; top:200px;}
+        75%  {background-color:green; left:0px; top:200px;}
+        100% {background-color:red; left:0px; top:0px;}
+        }
+        .dropdown {
+        position: relative;
+        display: inline-block;}
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #ffcaca;
+        min-width: 120px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 10px 10px;
+        z-index: 1;}
+        .dropdown:hover .dropdown-content {
+        display: block;}
+        div.ex10 {
+        width: 300px;
+        height: 100px;
+        padding: 15px;
+        background-color: rgb(228, 202, 255);
+        box-shadow: 10px 10px;}
+    </style>
+</head>
+<body>
+    <h1>Самостійна робота 2</h1>
+    <h2 style="color:rgb(233, 57, 139);">з предмету WEB – орієнтовані технології. Основи Frontend та Backend розробок </h2>
+    <p class="dashed">And you don't seem to understand</p>
+    <p class="solid">And all the fears you hold so dear</p>
+    <p class="double">Will turn to whisper in your ear</p>
+    <p class="groove">And you know what they say might hurt you</p>
+    <p class="ridge">And you know that it means so much</p>
+    <p class="inset">And you don't even feel a thing</p>
+    <p class="outset">I am falling, I am fading</p>
+    <p class="mix">A shame that I can read your mind</p>
+
+    <div class="ex3"></div>
+
+    <h1 class="custom-border">And all the things that I read there</h1>
+    <h1 class="bg-color1">Candlelit smile that we both share</h1>
+    <h1 class="bg-color2">And you know I don't mean to hurt you</h1>
+    <p class="test">I got in a fight, I was indisposed. I was in despite all the wicked prose. But I'm only a man. BEHAVEBEHAVEBEHAVEBEHAVEBEHAVEBEHAVEBEHAVEBEHAVEBEHAVEBEHAVE!</p>
+    <div class="ex2">I never walk about after dark. It's my point of view</div><br/><br/>
+    <img src="pic.jpg" width="350" height="263" alt="Klematis">
+    <div class="ex4">The fire hurts alright.'Cause we can make 'em all a bit crazy</div>
+    <p class="icon-text">
+        <img src="shine.ico" alt="Иконка"> Star icon.
+    </p>
+    <div class="ex5">'Cause when you're running by yourself. It's hard to find someone to hold your hand</div>
+    <table>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Income</th>
+        </tr>
+        <tr>
+            <td>Helena</td>
+            <td>Makova</td>
+            <td>$100</td>
+        </tr>
+        <tr>
+            <td>Villen</td>
+            <td>Sour</td>
+            <td>$150</td>
+        </tr>
+        <tr>
+            <td>Joe</td>
+            <td>Watson</td>
+            <td>$300</td>
+        </tr>
+        <tr>
+            <td>Peter</td>
+            <td>Honey</td>
+            <td>$250</td>
+        </tr>
+    </table>
+    <p><b><a href="https://www.youtube.com/watch?v=mGc0Z7E0U1I&ab_channel=TantumFacta" target="_blank">Посилання</a></b></p>
+    <div class="tooltip">Hover over me
+        <span class="boom">Tooltip text</span>
+    </div>
+    <p>Default:</p>
+    <ul>
+        <li>Ice</li>
+        <li>Fire</li>
+        <li>Light</li>
+    </ul>
+    <p>Not default:</p>
+    <ul class="demo">
+        <li>Autumn</li>
+        <li>Summer</li>
+        <li>Spring</li>
+    </ul>
+    <p id="rcorners3"></p>
+    <h1>Newspaper columns</h1>
+    <div class="newspaper">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</div>
+    <br><br/>
+    <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a href="#" class="active">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&raquo;</a>
+    </div>
+    <br><br/>
+    <div class="container">
+        <img src="glow.jpg" alt="Glow" style="width:100%">
+        <button class="btn">Button</button>
+    </div>
+    <div class="dropdown">
+        <span>Mouse over me</span>
+        <div class="dropdown-content">
+        <p>Hello everybody!</p>
+        </div>
+    </div>
+    <p>Animation:</p>
+    <div class="ex10">Always looking straight. Thinking, counting all the hours </div>
+    <br><br/>
+    <div class="ex7"></div>
+</body>
+</html>
